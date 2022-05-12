@@ -36,12 +36,12 @@ import React from "react";
          
         </TouchableOpacity>
        <TouchableOpacity>
-          <Icon name="clock" size={90} color="#FFF"
+          <Icon name="clock" size={90} color="#FFF" onPress={()=>{navigation.navigate('Historico')}}
          
           />
        </TouchableOpacity>
         <TouchableOpacity>
-          <Icon name="clipboard" size={90} color="#FFF"
+          <Icon name="clipboard" size={90} color="#FFF" onPress={()=>{navigation.navigate('Agenda')}}
           
           />
         </TouchableOpacity>
@@ -59,13 +59,13 @@ import React from "react";
         <View style={styles.icons3}>
         
        <TouchableOpacity>
-          <Icon name="activity" size={90} color="#FFF"
+          <Icon name="activity" size={90} color="#FFF" onPress={()=>{navigation.navigate('Agenda')}}
         
       
         />
        </TouchableOpacity>
        <TouchableOpacity>
-          <Icon name="calendar" size={90} color="#FFF"
+          <Icon name="calendar" size={90} color="#FFF" onPress={()=>{navigation.navigate('Horários')}}
           
            />
        </TouchableOpacity>

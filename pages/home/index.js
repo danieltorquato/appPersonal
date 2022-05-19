@@ -1,11 +1,12 @@
-import React from "react";
+import React  from "react";
     import {View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from 'react-native';
     import Icon from 'react-native-vector-icons/Feather';
     import { useNavigation } from "@react-navigation/native";
 
 
     export default function Home(){
-      const navigation = useNavigation()
+     
+      const navigation = useNavigation();
         return(
           <ScrollView style={styles.blackBackground}>
           <ScrollView style={styles.blueBackground}>

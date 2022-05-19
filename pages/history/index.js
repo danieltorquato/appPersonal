@@ -1,8 +1,18 @@
 import React from "react";
-import {View, Text} from "react-native";
+import {View, Text, StyleSheet} from "react-native";
 
 export default function History(){
     return(
-        <View><Text>Alo Pegando</Text></View>
+        <View style={styles.viewGeral}>
+
+<View></View>
+
+        </View>
     )
 } 
+const styles = StyleSheet.create({
+    viewGeral:{
+        flex:1,
+        backgroundColor: "#444"
+    }
+})

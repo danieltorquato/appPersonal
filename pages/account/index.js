@@ -1,7 +1,24 @@
-import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+
+import React, {useState, useEffect} from "react";
+import { View, Text, Image, StyleSheet} from "react-native";
+import firebase from "../../src/firebaseConnection";
+
 
 export default function Account() {
+    let id = 1
+    const [nome, setNome]=useState('Carregando...');
+    const [sobrenome, setSobrenome]=useState('Carregando...');
+    
+useEffect(()=>{
+    async function dados(){
+        await firebase.database().ref('usuarios/'+id).on('value', (snapshot)=>{
+            setNome(snapshot.val().nome);
+            setSobrenome(snapshot.val().sobrenome);
+        })
+        
+    }
+    dados();
+}, []);
     return (
         <View>
 
@@ -23,7 +40,8 @@ export default function Account() {
                 </View>
             </View>
             <View style={styles.dados}>
-                <Text style={styles.fullName}>DANIEL MONTEIRO DA SILVA TORQUATO</Text>
+                <Text style={styles.firstName}>{nome}</Text>
+                <Text style={styles.surName}>{sobrenome}</Text>
                 <View style={styles.dados2}>
                     <View style={styles.dataUsers}>
                         <Text style={styles.titleData}>Código</Text>
@@ -95,7 +113,7 @@ const styles = StyleSheet.create({
         marginTop: 30,
         alignContent: 'space-around'
     },
-    fullName: {
+    firstName: {
         fontSize: 40,
         marginTop: 10,
         marginLeft: 5

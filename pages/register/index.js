@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, Button, FlatList, ActivityIndicator} from 'react-native';
-import firebase from '../../src/firebaseConnection';
+import firebase from '../../src/services/firebaseConnection';
 
 
-export default function Register(){
+export default function Register({changeStatus}){
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 

@@ -1,21 +1,28 @@
 
+import { getDatabase, ref, set } from "firebase/database";
 import React, {useState, useEffect} from "react";
 import { View, Text, Image, StyleSheet} from "react-native";
-import firebase from "../../src/firebaseConnection";
+import firebase from "../../src/services/firebaseConnection";
 
 
 export default function Account() {
-    let id = 1
+   
     const [nome, setNome]=useState('Carregando...');
     const [sobrenome, setSobrenome]=useState('Carregando...');
     
 useEffect(()=>{
-    async function dados(){
-        await firebase.database().ref('usuarios/'+id).on('value', (snapshot)=>{
+     function dados(){
+       const  db=getDatabase()
+        set(ref(db, 'usuarios/1')).on('value', (snapshot)=>{
             setNome(snapshot.val().nome);
             setSobrenome(snapshot.val().sobrenome);
+        }).then(()=>{
+            alert('pegou')
+        }).catch((error)=>{
+            console.log(error)
+            alert('erro')
         })
-        
+       
     }
     dados();
 }, []);

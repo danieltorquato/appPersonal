@@ -1,5 +1,5 @@
 import React  from "react";
-    import {View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from 'react-native';
+    import {View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';
     import Icon from 'react-native-vector-icons/Feather';
     import { useNavigation } from "@react-navigation/native";
 
@@ -10,12 +10,12 @@ import React  from "react";
         return(
           <ScrollView style={styles.blackBackground}>
           <ScrollView style={styles.blueBackground}>
-            <View style={styles.headerArea} >
+            <SafeAreaView style={styles.headerArea} >
             <Image source={require("./img/logoof.png")} style={styles.headerImage}
               
               />
             
-            </View>
+            </SafeAreaView>
             <Text style={styles.subtitle}> Treino do Dia</Text>
 
  
@@ -104,7 +104,7 @@ import React  from "react";
          },
          headerArea:{
            borderBottomColor:"rgba(31, 31, 31, 1)",
-           marginTop:30,
+        
            borderWidth:1,
            backgroundColor:"#000",
            height:80,

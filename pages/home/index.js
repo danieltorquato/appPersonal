@@ -1,12 +1,15 @@
-import React  from "react";
+import React, { useContext }  from "react";
     import {View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';
     import Icon from 'react-native-vector-icons/Feather';
     import { useNavigation } from "@react-navigation/native";
+import { AuthContext } from "../../src/contexts/auth";
 
 
     export default function Home(){
      
       const navigation = useNavigation();
+
+    const {signOut} = useContext(AuthContext);
         return(
           <ScrollView style={styles.blackBackground}>
           <ScrollView style={styles.blueBackground}>
@@ -66,7 +69,7 @@ import React  from "react";
            />
        </TouchableOpacity>
       <TouchableOpacity>
-          <Icon name="log-out" size={90} color="#A9A9A9"
+          <Icon name="log-out" size={90} color="#A9A9A9" onPress={()=>signOut()}
           />
           
       </TouchableOpacity>

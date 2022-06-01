@@ -1,31 +1,14 @@
-
-import { getDatabase, ref, set } from "firebase/database";
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { View, Text, Image, StyleSheet} from "react-native";
-import firebase from "../../src/services/firebaseConnection";
+import { useContext } from "react";
+import { AuthContext } from "../../src/contexts/auth";
+
+
 
 
 export default function Account() {
-   
-    const [nome, setNome]=useState('Carregando...');
-    const [sobrenome, setSobrenome]=useState('Carregando...');
-    
-useEffect(()=>{
-     function dados(){
-       const  db=getDatabase()
-        set(ref(db, 'usuarios/1')).on('value', (snapshot)=>{
-            setNome(snapshot.val().nome);
-            setSobrenome(snapshot.val().sobrenome);
-        }).then(()=>{
-            alert('pegou')
-        }).catch((error)=>{
-            console.log(error)
-            alert('erro')
-        })
-       
-    }
-    dados();
-}, []);
+   const {user} = useContext(AuthContext)
+
     return (
         <View>
 
@@ -47,8 +30,8 @@ useEffect(()=>{
                 </View>
             </View>
             <View style={styles.dados}>
-                <Text style={styles.firstName}>{nome}</Text>
-                <Text style={styles.surName}>{sobrenome}</Text>
+                <Text style={styles.firstName}>{user.nome}</Text>
+                <Text style={styles.surName}></Text>
                 <View style={styles.dados2}>
                     <View style={styles.dataUsers}>
                         <Text style={styles.titleData}>Código</Text>
@@ -63,7 +46,7 @@ useEffect(()=>{
                 <View style={styles.dados3}>
                     <View style={styles.dataUsers3}>
                         <Text style={styles.titleData2}>Email</Text>
-                        <Text style={styles.userData3}>danieltorquato2009@gmail.com</Text>
+                        <Text style={styles.userData3}>{user.email}</Text>
                     </View></View>
             </View>
 

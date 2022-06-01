@@ -10,12 +10,7 @@ import React  from "react";
         return(
           <ScrollView style={styles.blackBackground}>
           <ScrollView style={styles.blueBackground}>
-            <SafeAreaView style={styles.headerArea} >
-            <Image source={require("./img/logoof.png")} style={styles.headerImage}
-              
-              />
             
-            </SafeAreaView>
             <Text style={styles.subtitle}> Treino do Dia</Text>
 
  
@@ -96,7 +91,8 @@ import React  from "react";
     const styles = StyleSheet.create({
         blackBackground:{
            backgroundColor:"black",
-           flex:1
+           flex:1,
+        
          },
          blueBackground:{
            backgroundColor:"rgba(0, 31, 195, 0.10)",
@@ -170,8 +166,8 @@ import React  from "react";
          fontSize:25,
          color: "#FFF",
          fontWeight:'bold',
-         marginLeft: 15
-       
+         marginLeft: 15,
+        marginTop: 15
        },
        subtitle2:{
          fontSize:25,

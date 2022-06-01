@@ -1,85 +1,66 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput, Button, FlatList, ActivityIndicator} from 'react-native';
-import firebase from '../../src/services/firebaseConnection';
+import { useNavigation } from "@react-navigation/native";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../src/contexts/auth";
 
 
-export default function Register({changeStatus}){
-  const [email, setEmail] = useState('');
+import { Background, Container, Logo, AreaInput, Input, SubmitButton, 
+  SubmitText, Link, LinkText} from './style';
+
+export default function Register() {
+  const [email,setEmail] = useState();
   const [password, setPassword] = useState('');
+  const [name,setName] = useState();
 
-
-
-  async function cadastrar(){
   
-    await firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then( (userCredential) => {
-        const user = userCredential.user;
-        alert('Usuario criado: ' + user.email);
-    
-      return;
-    }).catch((error) => {
-        if(error.code === 'auth/weak-password'){
-            alert('Sua senha deve ter pelo menos 6 caracteres');
-            return;
-          }
-          if(error.code === 'auth/invalid-email'){
-            alert('Email invalido');
-            return;
-          }else{
-            alert('Ops algo deu errado!');
-            return;
-          }
-     
-      });
-    
-    
+ 
+  const { signUp } = useContext(AuthContext);
+  const navigation = useNavigation();
 
-    setEmail('');
-    setPassword('');
+  function handleSignUp(){
+    signUp(email, password, name)
   }
-
-  return(
-    <View style={styles.container}>
-      <Text style={styles.texto}>Email</Text>
-      <TextInput
-      style={styles.input}
-      underlineColorAndroid="transparent"
-      onChangeText={(texto) => setEmail(texto) }
+ return (
+  <Background>
+  <Container>
+  
+    <AreaInput>
+      <Input
+      placeholder="Nome"
+      autoCorrect={false}
+      autoCapitalize="none"
+      value={name}
+      onChangeText={ (text) => setName(text) }
+      />
+    </AreaInput>
+    <AreaInput>
+      <Input
+      placeholder="Email"
+      autoCorrect={false}
+      autoCapitalize="none"
       value={email}
+      onChangeText={ (text) => setEmail(text) }
       />
+    </AreaInput>
 
-      <Text style={styles.texto}>Senha</Text>
-      <TextInput
-      style={styles.input}
-      underlineColorAndroid="transparent"
-      onChangeText={(texto) => setPassword(texto) }
+    <AreaInput>
+      <Input
+      placeholder="Senha"
+      autoCorrect={false}
+      autoCapitalize="none"
       value={password}
+      onChangeText={ (text) => setPassword(text) }
       />
+    </AreaInput>
 
-      <Button
-      title="Cadastrar"
-      onPress={cadastrar}
-      />
+  <SubmitButton onPress={handleSignUp}>
+    <SubmitText>Cadastrar</SubmitText>
+  </SubmitButton>
 
+  <Link  onPress={()=>navigation.navigate('Login')}>
+    <LinkText>Já tenho uma conta</LinkText>
+  </Link>
 
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    margin: 10,
-  },
-  texto: {
-    fontSize: 20,
-  },
-  input:{
-    marginBottom: 10,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: '#121212',
-    height: 45,
-    fontSize: 17
-  }
-});
+  </Container>
+</Background>
+  )
+ }

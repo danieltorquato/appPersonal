@@ -35,8 +35,8 @@ export default function Account() {
                 <SubmitButton>
                     <SubmitText>Alterar Dados</SubmitText>
                 </SubmitButton>
-                <SubmitButtonMenu>
-                    <SubmitText onPress={()=>navigation.navigate('Home')}>Voltar ao Menu</SubmitText>
+                <SubmitButtonMenu onPress={()=>navigation.navigate('Home')}>
+                    <SubmitText >Voltar ao Menu</SubmitText>
                 </SubmitButtonMenu>
             </Container>
         </Background>

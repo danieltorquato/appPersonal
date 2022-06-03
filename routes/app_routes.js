@@ -2,6 +2,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from '../pages/home'
 import Account from '../pages/account';
+import exerciseDetails from '../pages/exerciseDetails';
 
 const AppStack = createNativeStackNavigator();
 
@@ -13,6 +14,10 @@ function AppRoutes(){
            { headerShown:false}
         }/>
          <AppStack.Screen name="Perfil" component={Account}
+        options={
+           { headerShown:false}
+        }/>
+         <AppStack.Screen name="Detalhes" component={exerciseDetails}
         options={
            { headerShown:false}
         }/>

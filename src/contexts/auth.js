@@ -6,6 +6,7 @@ export const AuthContext = createContext({});
 export default function AuthProvider({children}){
  const [user, setUser] = useState(null);
  const [load,setLoad] = useState(true);
+
  const db = firebase.database();
 useEffect(()=>{
     async function loadStorage() {
@@ -72,6 +73,8 @@ async function signOut(){
         setUser(null)
     })
 }
+
+
 return(
    <AuthContext.Provider value={{signed: !!user , user, signUp, signIn, load, signOut}}>
 {children}

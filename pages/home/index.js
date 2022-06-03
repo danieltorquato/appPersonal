@@ -35,7 +35,7 @@ import { AuthContext } from "../../src/contexts/auth";
          
         </TouchableOpacity>
        <TouchableOpacity>
-          <Icon name="clock" size={90} color="#FFF" onPress={()=>{navigation.navigate('Historico')}}
+          <Icon name="clock" size={90} color="#FFF" onPress={()=>{navigation.navigate('Detalhes')}}
          
           />
        </TouchableOpacity>
@@ -93,12 +93,12 @@ import { AuthContext } from "../../src/contexts/auth";
     }
     const styles = StyleSheet.create({
         blackBackground:{
-           backgroundColor:"black",
+           backgroundColor:"#000013",
            flex:1,
         
          },
          blueBackground:{
-           backgroundColor:"rgba(0, 31, 195, 0.10)",
+           backgroundColor:"#000013",
          flex:1
          },
          headerArea:{

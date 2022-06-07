@@ -32,5 +32,4 @@ firebase.initializeApp(firebaseConfig);
 
 }
 
-
 export default firebase;

@@ -3,10 +3,25 @@ import React, { useContext }  from "react";
     import Icon from 'react-native-vector-icons/Feather';
     import { useNavigation } from "@react-navigation/native";
 import { AuthContext } from "../../src/contexts/auth";
-
+import firebase from '../../src/services/firebaseConnection';
+import { format } from 'date-fns';
 
     export default function Home(){
+  
+      const { user: usuario } = useContext(AuthContext);
+      let uid = usuario.uid;
+    async function addHistory(){
+ 
      
+         let key = await firebase.database().ref('History').child(uid).push().key;
+         await firebase.database().ref('History').child(uid).child(key).set({
+          
+           date: format(new Date(), 'dd/MM/yy')
+         })
+         alert('Pegando')
+         
+        }
+      
       const navigation = useNavigation();
 
     const {signOut} = useContext(AuthContext);
@@ -35,7 +50,7 @@ import { AuthContext } from "../../src/contexts/auth";
          
         </TouchableOpacity>
        <TouchableOpacity>
-          <Icon name="clock" size={90} color="#FFF" onPress={()=>{navigation.navigate('Detalhes')}}
+          <Icon name="clock" size={90} color="#FFF" onPress={()=>{navigation.navigate('Historico')}}
          
           />
        </TouchableOpacity>
@@ -58,7 +73,7 @@ import { AuthContext } from "../../src/contexts/auth";
         <View style={styles.icons3}>
         
        <TouchableOpacity>
-          <Icon name="activity" size={90} color="#FFF" onPress={()=>{navigation.navigate('Agenda')}}
+          <Icon name="activity" size={90} color="#FFF" onPress={()=>{navigation.navigate('Detalhes')}}
         
       
         />
@@ -80,7 +95,7 @@ import { AuthContext } from "../../src/contexts/auth";
         <Text style={styles.iconsText}>HORÁRIOS</Text>
         <Text style={styles.iconsText}>SAIR</Text>
         </View>
-        <TouchableOpacity ><Text style={styles.buttonInit}>Iniciar Treino</Text></TouchableOpacity>
+        <TouchableOpacity onPress={()=>addHistory()}><Text style={styles.buttonInit}>Iniciar Treino</Text></TouchableOpacity>
         <Text style={styles.subtitle2}> Gráfico de Progresso</Text>
       <ScrollView style={styles.box} horizontal={true}>
       
@@ -91,6 +106,7 @@ import { AuthContext } from "../../src/contexts/auth";
             
         )
     }
+  
     const styles = StyleSheet.create({
         blackBackground:{
            backgroundColor:"#000013",
@@ -219,3 +235,4 @@ import { AuthContext } from "../../src/contexts/auth";
        }
        }
        )
+    

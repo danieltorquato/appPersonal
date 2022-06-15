@@ -10,7 +10,7 @@ export default function Account() {
     return (
         <Background>
             <HeaderAccount>
-                <ImgAccount source={require('./img/perfil.png')} />
+                
                 <Measurements>
                     <MeasurementsData><MeasurementsTextIn>120</MeasurementsTextIn></MeasurementsData>
                     <MeasurementsText>Peso</MeasurementsText>
@@ -19,6 +19,7 @@ export default function Account() {
                 </Measurements>
             </HeaderAccount>
             <Container>
+              
                 <Name>
                     <TextName>{user.nome}</TextName>
                 </Name>

@@ -29,7 +29,7 @@ async function signIn(email, password) {
                 uid: uid,
                 nome: snapshot.val().nome,
                 email: value.user.email,
-
+              
             };
             setUser(data);
             storageUser(data);
@@ -52,7 +52,7 @@ async function signUp(email, password, nome) {
                 uid: uid,
                 nome: nome,
                 email: value.user.email,
-
+                
             };
             setUser(data)
             storageUser(data);

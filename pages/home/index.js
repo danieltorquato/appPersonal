@@ -96,6 +96,9 @@ import { format } from 'date-fns';
         <Text style={styles.iconsText}>SAIR</Text>
         </View>
         <TouchableOpacity onPress={()=>addHistory()}><Text style={styles.buttonInit}>Iniciar Treino</Text></TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{navigation.navigate('Adicionar Exercício')}}><Text style={styles.buttonInit}>Adicionar Exercício</Text></TouchableOpacity>
+
         <Text style={styles.subtitle2}> Gráfico de Progresso</Text>
       <ScrollView style={styles.box} horizontal={true}>
       

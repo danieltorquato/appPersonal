@@ -5,6 +5,7 @@ import Account from '../pages/account';
 import exerciseDetails from '../pages/exerciseDetails';
 import History from '../pages/history';
 import Schedule from '../pages/schedule';
+import addExercise from '../pages/addExercise';
 const AppStack = createNativeStackNavigator();
 
 function AppRoutes(){
@@ -27,6 +28,10 @@ function AppRoutes(){
            { headerShown:false}
         }/>
          <AppStack.Screen name="Agenda" component={Schedule}
+        options={
+           { headerShown:false}
+        }/>
+         <AppStack.Screen name="Adicionar Exercício" component={addExercise}
         options={
            { headerShown:false}
         }/>

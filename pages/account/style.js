@@ -24,7 +24,7 @@ justify-content:center;
         border-width: 2;
         border-color: #FFF;
         margin-top: 5;
-        
+        color: #FFF;
  `;
  export const MeasurementsData = styled.View`
 border-width: 2;

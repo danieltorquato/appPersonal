@@ -27,8 +27,19 @@ border-width: 1px;
   margin-top: 10px
 `;
 export const InputImage = styled.TouchableOpacity`
-
+width: 200px;
+height: 200px;
+`;
+export const InputUpload = styled.TouchableOpacity`
+width: 200px;
+height: 200px;
 `;
 export const InputImageText = styled.Text`
 color: #FFF
+`;
+export const Img = styled.Image`
+width: 200px;
+height: 200px;
+border-color: #fff;
+border-width: 2px;
 `;

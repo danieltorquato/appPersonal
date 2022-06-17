@@ -7,8 +7,8 @@ import "firebase/compat/database";
 import 'firebase/auth';
 import 'firebase/firestore';
 import "firebase/database";
-
-
+import "firebase/storage";
+import "firebase/compat/storage"
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -31,5 +31,5 @@ if (firebase.apps.length === 0) {
 firebase.initializeApp(firebaseConfig);
 
 }
-
+var storage = firebase.storage();
 export default firebase;

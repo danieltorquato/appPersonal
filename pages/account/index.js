@@ -4,13 +4,17 @@ import { AuthContext } from "../../src/contexts/auth";
 import { Background, Container, HeaderAccount, ImgAccount, Informations, Measurements, MeasurementsData, MeasurementsText, MeasurementsTextIn, Name, SubmitButton, SubmitButtonMenu, SubmitText, TextInformation, TextName, TextTitle } from './style';
 
 
+
 export default function Account() {
     const navigation = useNavigation();
     const { user, email } = useContext(AuthContext)
-    return (
+
+ 
+      
+     return (
         <Background>
             <HeaderAccount>
-                
+                <ImgAccount source={require('./img/perfil.png')}></ImgAccount>
                 <Measurements>
                     <MeasurementsData><MeasurementsTextIn>120</MeasurementsTextIn></MeasurementsData>
                     <MeasurementsText>Peso</MeasurementsText>
